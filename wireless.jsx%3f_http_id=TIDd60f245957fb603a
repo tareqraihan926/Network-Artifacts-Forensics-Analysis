@@ -1,0 +1,48 @@
+//	
+wl_ifaces = [ ['eth1','0',0,-1,'FreshTomato24','A0:04:60:CA:6C:B6',1,16,'ap','00:00:00:00:00:00']];
+
+//	
+wl_bands = [ [ '2'] ];
+
+//	
+nvram = {
+	'wl_nband': '2',
+	'wl0_nband': '2',
+	'wl_unit': '0',
+	'http_id': 'TIDd60f245957fb603a',
+	'web_mx': 'status,bwm',
+	'web_pb': ''};
+
+function wl_fface(uidx) {
+return wl_ifaces[uidx][1];
+}
+function wl_unit(uidx) {
+return wl_ifaces[uidx][2];
+}
+function wl_sunit(uidx) {
+return wl_ifaces[uidx][3];
+}
+function wl_uidx(unit) {
+for (var u = 0; u < wl_ifaces.length; ++u) {
+if (wl_ifaces[u][2] == unit) return u;
+}
+return -1;
+}
+function wl_ifidx(ifname) {
+for (var u = 0; u < wl_ifaces.length; ++u) {
+if (wl_ifaces[u][0] == ifname) return u;
+}
+return -1;
+}
+function wl_ifidxx(ifname) {
+for (var u = 0; u < wl_ifaces.length; ++u) {
+if (wl_ifaces[u][1] == ifname) return u;
+}
+return -1;
+}
+function wl_display_ifname(uidx) {
+return wl_ifaces[uidx][0]+(wl_sunit(uidx) < 0 ?
+' (wl'+wl_fface(uidx)+')' : '')+((wl_bands[uidx].length == 1) ?
+((wl_bands[uidx][0] == '1') ? ' / 5 GHz' : ' / 2.4 GHz') : ((nvram['wl'+wl_unit(uidx)+'_nband'] == 1) ?
+' / 5 GHz' : ' / 2.4 GHz'));
+}

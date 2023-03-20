@@ -249,7 +249,7 @@ And the status section is-
 </p>
 
 
-From Analyze the source packet & the source code, we can identify the pptp server ip stat and The netmask of hacker connection. We can prove it from the Authentication log file again. Let Me check that-
+From Analyze the source packet & the source code, we can identify the pptp server ip stat and The netmask of hacker connection. We can prove it from the Authentication log file again. Check that-
 
 <p align="center">
 
